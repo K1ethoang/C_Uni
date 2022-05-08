@@ -15,6 +15,7 @@ Bài 4: Viết chương trình nhập vào một ma trận thực cấp nxn rồ
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #define GRANT 100
 
@@ -22,6 +23,7 @@ void program();
 void inputMatrix(int a[][GRANT], int n);
 void outputMatrix(int a[][GRANT], int n);
 double sumOfMatrix(int a[][GRANT], int n);
+double maxValueOfMatrix(int a[][GRANT], int n);
 void productOfColAndColumnWithTheSmallestProduct(int a[][GRANT], int n);
 void checkTriangleMatrix(int a[][GRANT], int n);
 
@@ -49,6 +51,8 @@ void program()
     outputMatrix(a, n);
     printf("\n----------------------------------------------------\n");
     printf("\nTong cua ma tran: %.2lf", sumOfMatrix(a, n));
+    printf("\n----------------------------------------------------\n");
+    printf("\nGia tri lon nhat cua ma tran: %.2f", maxValueOfMatrix(a, n));
     printf("\n----------------------------------------------------\n");
     productOfColAndColumnWithTheSmallestProduct(a, n);
     printf("\n----------------------------------------------------\n");
@@ -90,31 +94,44 @@ double sumOfMatrix(int a[][GRANT], int n)
     return sum;
 }
 
+double maxValueOfMatrix(int a[][GRANT], int n)
+{
+    double max = a[0][0];
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+            if (max < a[i][j])
+                max = a[i][j];
+    }
+    return max;
+}
+
 void productOfColAndColumnWithTheSmallestProduct(int a[][GRANT], int n)
 {
-    int indexMin;
-    double minResult;
+    double *b = (double *)malloc(n * sizeof(double));
+    int index = 0;
+    double minValue;
     for (int i = 0; i < n; i++)
     {
         double productOfColumn = 1;
         for (int j = 0; j < n; j++)
+        {
             productOfColumn *= a[j][i];
-        printf("\nTich cot %d: %.2lf", i, productOfColumn);
+        }
+        b[index++] = productOfColumn;
+        printf("\nTich cot %d: %.2lf", i + 1, productOfColumn);
         if (i == 0)
-        {
-            minResult = productOfColumn;
-            indexMin = i;
-        }
-        else
-        {
-            if (productOfColumn < minResult)
-            {
-                minResult = productOfColumn;
-                indexMin = i;
-            }
-        }
+            minValue = productOfColumn;
+        else if (minValue > productOfColumn)
+            minValue = productOfColumn;
     }
-    printf("\nCot co tich nho nhat: cot %d (%.2lf)", indexMin, minResult);
+    printf("\n\tNhung cot co tich nho nhat: ");
+    for (int i = 0; i < index; i++)
+    {
+        if (minValue == b[i])
+            printf("\nCot %d", i + 1);
+    }
+    free(b);
 }
 
 void checkTriangleMatrix(int a[][GRANT], int n)
