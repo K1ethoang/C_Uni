@@ -114,7 +114,7 @@ void PointFarthestFromHorizontalAxis(Point p[], int n)
     {
         tempY = p[i].y;
         if (abs(tempY) > maxY)
-            maxY = p[i].y;
+            maxY = tempY;
     }
     printf("\nCac diem xa truc hoanh nhat: ");
     for (int i = 0; i < n; i++)
@@ -135,7 +135,7 @@ void countAndPrintLineSegmentsCutVerticalAxis(Point p[], int n)
         {
             if (p[i].x < 0 && p[j].x > 0 || p[i].x > 0 && p[j].x < 0)
             {
-                printf("\nP%d (%d ; %d) P%d (%d ; %d)", i, p[i].x, p[i].y, j, p[j].x, p[j].y);
+                printf("\nP%d (%d ; %d)   P%d (%d ; %d)", i, p[i].x, p[i].y, j, p[j].x, p[j].y);
                 count++;
             }
         }
