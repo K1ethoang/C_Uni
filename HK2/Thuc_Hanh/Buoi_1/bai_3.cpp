@@ -44,7 +44,7 @@ void program()
     int n;
     do
     {
-        printf("\nNhap so phan tu can co: ");
+        printf("\nNhap so diem can co: ");
         scanf("%d", &n);
         if (n < 1 || n > INT_MAX)
             printf("\nKhong hop le - Nhap lai!");
@@ -109,19 +109,20 @@ void lengthPoints(Point p[], int n)
 void PointFarthestFromHorizontalAxis(Point p[], int n)
 {
     // điểm xa trục hoành (trục x) là điểm có độ điểm y lớn nhất
-    Point result = p[0];
-    int tempYOfResult, tempYOfCurrent, indexMax = 0;
+    int tempY = p[0].y, maxY = abs(tempY);
     for (int i = 1; i < n; i++)
     {
-        tempYOfCurrent = p[i].y;
-        tempYOfResult = result.y;
-        if (abs(tempYOfCurrent) > abs(tempYOfResult))
-        {
-            result = p[i];
-            indexMax = i;
-        }
+        tempY = p[i].y;
+        if (abs(tempY) > maxY)
+            maxY = p[i].y;
     }
-    printf("\nDiem xa truc hoanh nhat: P%d (%d ; %d)", indexMax, result.x, result.y);
+    printf("\nCac diem xa truc hoanh nhat: ");
+    for (int i = 0; i < n; i++)
+    {
+        tempY = p[i].y;
+        if (abs(tempY) == maxY)
+            printf("\nP%d (%d ; %d)  ", i, p[i].x, p[i].y);
+    }
 }
 
 void countAndPrintLineSegmentsCutVerticalAxis(Point p[], int n)
