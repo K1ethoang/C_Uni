@@ -129,7 +129,7 @@ int Fibo(int n, float *a)
     bool isRight;
     for (int i = 2; i < n; i++)
     {
-        if (a[i] == a[i - 1] + a[i - 2])
+        if (a[i] == a[i - 1] + a[i - 2] && a[i] > 0)
             isRight = true;
         else
         {
