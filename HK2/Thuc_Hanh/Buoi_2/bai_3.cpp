@@ -62,7 +62,7 @@ int main()
             break;
         }
     } while (!isExit);
-    free(a);
+    XoaBN(n, a);
     return 0;
 }
 
@@ -81,6 +81,7 @@ void XoaBN(int n, int **a)
     {
         free(a[i]);
     }
+    free(a);
 }
 
 void Nhap(int &n, int **&a)

@@ -86,7 +86,6 @@ int main()
         case 6:
         {
             isExit = true;
-            printf("\n\tThoat chuong trinh thanh cong\n");
             break;
         }
         default:
@@ -95,8 +94,8 @@ int main()
             break;
         }
     } while (!isExit);
-
     free(a);
+    printf("\n\tThoat chuong trinh thanh cong\n");
     return 0;
 }
 
@@ -206,8 +205,10 @@ void XuatFileVB(int n, NhanSu *a, char *fname)
         {
             fprintf(fileOut, "\n%s\n%f\n%s", a[i].fullName, a[i].coefficientsSalary, a[i].position);
         }
+        XuatMH(n, a);
+        printf("\n\t\tGhi du lieu ra file \'%s\' thanh cong\n", fname);
     }
-    printf("\n\t\tGhi du lieu ra file \'%s\' thanh cong\n", fname);
+
     fclose(fileOut);
 }
 
@@ -223,8 +224,10 @@ void XuatFileNP(int n, NhanSu *a, char *fname)
         {
             fwrite(&a[i], sizeof(NhanSu), 1, fileOut);
         }
+        XuatMH(n, a);
+        printf("\n\t\tGhi du lieu ra file \'%s\' thanh cong\n", fname);
     }
-    printf("\n\t\tGhi du lieu ra file \'%s\' thanh cong\n", fname);
+
     fclose(fileOut);
 }
 
