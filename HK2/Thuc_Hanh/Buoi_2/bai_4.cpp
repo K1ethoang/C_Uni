@@ -11,7 +11,7 @@ typedef struct Node
     Node *pNext;
 } Node;
 
-Node *TaoMoi(int x /* = 0 */);
+Node *TaoMoi(int x);
 Node *ThemDau(Node *H, int x);
 void ThemCuoi(Node *&H, int x);
 void LIFO(Node *&H);
@@ -95,7 +95,7 @@ int main()
     return 0;
 }
 
-Node *TaoMoi(int x /* = 0 */)
+Node *TaoMoi(int x = 0)
 {
     Node *p = (Node *)malloc(sizeof(Node));
     if (p == NULL)

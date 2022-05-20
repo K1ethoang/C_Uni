@@ -1,0 +1,18 @@
+{
+  "files.associations": {
+    "type_traits": "cpp",
+    "climits": "cpp",
+    "cmath": "cpp",
+    "compare": "cpp",
+    "concepts": "cpp",
+    "cstdarg": "cpp",
+    "cstdio": "cpp",
+    "cstdlib": "cpp",
+    "limits": "cpp",
+    "new": "cpp",
+    "*.tcc": "cpp",
+    "cstdbool": "cpp",
+    "cstdint": "cpp",
+    "typeinfo": "cpp"
+  }
+}

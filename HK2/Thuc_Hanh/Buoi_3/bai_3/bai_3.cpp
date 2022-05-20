@@ -95,7 +95,7 @@ int main()
                 multiplyTwoMatrix(b, c, mRes, nRes, res);
                 printf("\n\t\t2 MA TRAN SAU KHI KHAN\n");
                 Xuat(mRes, nRes, res);
-                printf("\nNhap ten file van ban can xuat: ");
+                printf("\nNhap ten file nhi phan can xuat: ");
                 fflush(stdin);
                 gets(fName);
                 strcat(fName, ".bin");
