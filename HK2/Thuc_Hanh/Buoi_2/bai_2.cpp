@@ -1,10 +1,6 @@
-// #############################################################################
-// ###           Name: Hoang Gia Kiet                                        ###
-// ###           Code: 6251071049                                            ###
-// ###           Class: CNTT - K62                                           ###
-// ###           Tool: VSCode                                                ###
-// ###           BM CNTT - DH GIAO THONG VAN TAI - PHAN HIEU TP.HCM          ###
-// #############################################################################
+// Name: Hoàng Gia Kiệt
+// Code: 6251071049
+// Class: CNTT - K62
 
 #include <stdio.h>
 #include <stdlib.h>

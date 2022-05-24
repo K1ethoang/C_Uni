@@ -19,6 +19,7 @@ void FIFO(Node *&H);
 void Xuat(Node *H);
 void Xoa(Node *&H, int x);
 int Menu();
+void freeMemory(Node *&H);
 
 int main()
 {
@@ -90,8 +91,9 @@ int main()
             break;
         }
     } while (!isExit);
-    free(a);
-    free(b);
+    freeMemory(a);
+    freeMemory(b);
+    printf("\n\t\tThoat chuong trinh thanh cong !");
     return 0;
 }
 
@@ -142,20 +144,23 @@ void ThemCuoi(Node *&H, int x)
 void LIFO(Node *&H)
 {
     int value;
-    for (static int i = 1;; i++)
+    if (H != NULL)
+        freeMemory(H);
+    for (int i = 1;; i++)
     {
         printf("\n\t\tNhap phan tu %d: ", i);
         scanf("%d", &value);
-        if (value != 0)
-            H = ThemDau(H, value);
-        else
+        if (value == 0)
             break;
+        H = ThemDau(H, value);
     }
 }
 
 void FIFO(Node *&H)
 {
     int n, value;
+    if (H != NULL)
+        freeMemory(H);
     do
     {
         printf("\nNhap so phan tu DS FIFO: ");
@@ -163,7 +168,7 @@ void FIFO(Node *&H)
         if (n < 1)
             printf("\n\t\tNhap lai!");
     } while (n < 1);
-    for (static int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++)
     {
         printf("\n\t\tNhap phan tu %d: ", i);
         scanf("%d", &value);
@@ -227,4 +232,15 @@ int Menu()
     printf("\n    Lua chon cua ban -> ");
     scanf("%d", &choose);
     return choose;
+}
+
+void freeMemory(Node *&H)
+{
+    Node *t = NULL;
+    while (H != NULL)
+    {
+        t = H;
+        H = H->pNext;
+        free(t);
+    }
 }

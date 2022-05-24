@@ -326,3 +326,5 @@ void multiplyTwoMatrix(int **a, int **b, int mRes, int nRes, int **res)
         }
     }
 }
+
+// nhan 2 ma tran chua lam

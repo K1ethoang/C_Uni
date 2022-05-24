@@ -48,6 +48,7 @@ int main()
         case 4:
         {
             LietKe(n, a);
+            printf("\n");
             system("pause");
             break;
         }
@@ -63,6 +64,7 @@ int main()
         }
     } while (!isExit);
     XoaBN(n, a);
+    printf("\n\t\tThoat chuong trinh thanh cong !");
     return 0;
 }
 
