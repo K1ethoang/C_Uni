@@ -323,8 +323,7 @@ void multiplyTwoMatrix(int **a, int **b, int mRes, int nRes, int **res)
                 sum = sum + (a[row][i] * b[i][col]);
             }
             res[row][col] = sum;
+            printf("\n%d: ", sum);
         }
     }
 }
-
-// nhan 2 ma tran chua lam
